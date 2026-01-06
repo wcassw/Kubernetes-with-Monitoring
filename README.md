@@ -136,3 +136,12 @@ Example alert:
 ## Purpose
 
 This project demonstrates real-world Kubernetes application deployment and observability practices
+
+---
+
+An architecture diagram is included to show how all components interact.
+
+![Architecture Diagram](images/k8s-architecture.png)
+
+---
+
