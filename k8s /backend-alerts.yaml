@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: backend-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+  - name: backend.rules
+    rules:
+    - alert: BackendDown
+      expr: absent(up{namespace="multi-tier-web-app", job="backend"})
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: Backend is down
+        description: Backend has no active scrape targets
