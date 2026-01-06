@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: default-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  route:
+    receiver: "ui"
+    groupBy: ["alertname", "namespace"]
+  receivers:
+  - name: "ui"
